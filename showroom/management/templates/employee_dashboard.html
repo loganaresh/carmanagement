@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, Employee!</h1>
+    <h2>Car Inventory</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.model }} - {{ car.price }} - {% if car.availability %}Available{% else %}Not Available{% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Service Management</h2>
+    <ul>
+        {% for service in services %}
+            <li>{{ service.car.model }} - {{ service.description }} - {{ service.status }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

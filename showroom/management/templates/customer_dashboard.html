@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, Customer!</h1>
+    <h2>Your Car Services</h2>
+    <ul>
+        {% for service in user_services %}
+            <li>{{ service.car.model }} - {{ service.description }} - {{ service.status }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Insurance Details</h2>
+    <ul>
+        {% for insurance in insurances %}
+            <li>{{ insurance.car.model }} - {{ insurance.policy_number }} - {{ insurance.status }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
